@@ -1,4 +1,3 @@
-
 <script>
 var thread = {
 	"subject": "Order: Hello World!",
@@ -12,7 +11,9 @@ var thread = {
 <script>
 function pluginReady(plugin_name) {
 	var perform = function(js) {
-		window.frames[plugin_name].postMessage(js, '*');
+		// Ensure plugin_name is a safe value
+		const safePluginName = encodeURIComponent(plugin_name);
+		window.frames[safePluginName].postMessage(js, '*');
 	}
 
 	window.addEventListener('message', function (e) {
