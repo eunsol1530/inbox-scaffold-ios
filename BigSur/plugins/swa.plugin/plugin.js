@@ -1,5 +1,5 @@
 plugin.isAvailableForMessage = function(message) {
-    return (message.from[0].email.indexOf('luv.southwest.com') != -1);
+    return (message.from[0].email.endsWith('@luv.southwest.com'));
 }
 
 plugin.initialHTMLForMessage = function(message) {
